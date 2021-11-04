@@ -94,20 +94,6 @@ contains(CONFIG_BUILD, luna_service) {
 
 
 ################################################################################
-# agl-service
-#
-# Please use CONFIG_BUILD in your recipe.
-#
-#       EXTRA_QMAKEVARS_PRE +=  "CONFIG_BUILD+=agl_service"
-contains(CONFIG_BUILD, agl_service) {
-    DEFINES += HAS_AGL_SERVICE
-    CONFIG += agl_service
-    PKGCONFIG += libwindowmanager libhomescreen ilmControl
-    message($$MACHINE_NAME $$PLATFORM use agl service)
-}
-
-
-################################################################################
 # Path and CFLAGS
 
 VPATH += \
