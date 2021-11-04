@@ -69,7 +69,6 @@ if(IS_WEBOS)
         list(APPEND WAM_COMMON_DEFINES HAS_LUNA_SERVICE)
     endif()
 elseif(IS_AGL)
-    pkg_search_module(LIBHS REQUIRED libhomescreen)
     list(APPEND WAM_COMMON_DEFINES HAS_AGL_SERVICE)
 endif()
 
@@ -236,7 +235,6 @@ set(WAM_LIB_INCLUDE_DIRS
 set(WAM_LIB_LIBRARIES
     ${GLIB_LDFLAGS}
     ${CHROMIUM_LDFLAGS}
-    ${LIBHS_LDFLAGS}
     ${JSONCPP_LDFLAGS}
     ${LIBXML_LDFLAGS}
     ${CBE_LINK_DIR}

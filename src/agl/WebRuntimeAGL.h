@@ -8,8 +8,6 @@
 
 #include "WebRuntime.h"
 
-class LibHomeScreen;
-
 enum agl_shell_surface_type {
 	AGL_SHELL_TYPE_NONE,
 	AGL_SHELL_TYPE_DESKTOP,
@@ -88,8 +86,6 @@ private:
   std::string m_token;
 
   Launcher *m_launcher;
-
-  LibHomeScreen *m_hs = nullptr;
 
   std::unordered_map<int, int> m_surfaces;  // pair of <afm:rid, ivi:id>
   bool m_pending_create = false;
