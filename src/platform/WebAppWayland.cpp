@@ -125,14 +125,9 @@ void WebAppWayland::init(int width, int height, int surface_id,
 	    m_surface_role = AGL_SHELL_TYPE_NONE;
     }
 
-    if (width == 0)
-	    width = m_appWindow->DisplayWidth();
-    if (height == 0)
-	    height = m_appWindow->DisplayHeight();
-
     LOG_DEBUG("Width %d, Height %d, Role: %d\n", width, height, m_surface_role);
 
-    setUiSize(width, height);
+    setUiSize(m_appWindow->DisplayWidth(), m_appWindow->DisplayHeight());
     m_appWindow->InitWindow(width, height);
 
     webos::WebAppWindowBase::LocationHint locationHint = getLocationHintFromString(m_locationHint);
