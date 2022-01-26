@@ -44,7 +44,7 @@ static std::string getAppUrl(const std::vector<std::string>& args) {
     if (found != std::string::npos)
         return args[i];
   }
-  return std::string();
+  return std::string(getenv("AFM_APP_INSTALL_DIR"));
 }
 
 static bool isBrowserProcess(const std::vector<std::string>& args) {
@@ -96,6 +96,9 @@ get_surface_panel_type(const char* panel_type)
 }
 
 static bool isSharedBrowserProcess(const std::vector<std::string>& args) {
+  const char *value = getenv("AFM_ID");
+  if (value != nullptr)
+    return false;
   // if 'http://' param is not present then assume shared browser process
   for (size_t i=0; i < args.size(); i++) {
     std::size_t found = args[i].find(std::string("http://"));
